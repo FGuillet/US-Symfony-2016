@@ -1,0 +1,16 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}{% if category is not null %}{{ category.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+<section class="container">
+  <div class="row">
+    <h1>Edition "{{ category.name }}"</h1>
+  </div>
+  <div class="row">
+    {{ include("USCatalogBundle:Catalog:form.html.twig") }}
+  </div>
+
+</section>
+
+{% endblock %}

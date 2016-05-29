@@ -1,0 +1,35 @@
+.listAction .actionItem
+{
+  margin:0 0 10px 0;
+  padding:0 10px;
+  overflow:hidden;
+  border: 1px solid #999999;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  min-height: 100px;
+  text-align:center;
+}
+
+.actionImage,
+.actionNews
+{
+  text-align:center;
+  margin:0 0 10px 0;
+  padding:0;
+  overflow:hidden;
+
+}
+
+.actionNews .containerNews img,
+.actionNews .containerNews img
+{
+  margin:0 0 10px 0;
+  padding:0;
+  overflow:hidden;
+}
+
+.table .btn-group,
+.table .btn-group-vertical
+{
+  display:table-cell;
+}

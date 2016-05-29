@@ -1,0 +1,16 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Ajouter une catégorie - {% endblock %}
+
+{% block body %}
+<section class="container">
+  <h1>Ajouter une catégorie</h1>
+
+  <div class="row">
+    {% if form is defined %}
+      {{ include("USCatalogBundle:Catalog:form.html.twig") }}
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

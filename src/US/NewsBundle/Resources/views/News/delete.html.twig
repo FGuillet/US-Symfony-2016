@@ -1,0 +1,22 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Supprimer une actualité - {% endblock %}
+
+{% block body %}
+<section class="container">
+  <h2>Supprimer une actualité</h2>
+  <p>
+  Etes-vous certain de vouloir supprimer l'actualité "{{ news.title }}" ?
+  </p>
+
+  <form action="{{ path('us_news_delete', {'id': news.id}) }}" method="post">
+    <a href="{{ path('us_news_index') }}" class="btn">
+      Retour à la liste des actualités
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+  </form>
+</section>
+
+
+{% endblock %}

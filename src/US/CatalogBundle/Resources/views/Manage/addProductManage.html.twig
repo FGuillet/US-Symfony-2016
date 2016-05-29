@@ -1,0 +1,139 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Ajouter un produit - {% endblock %}
+
+{% block body %}
+<section class="container">
+  <h1>Ajouter un Produit</h1>
+  {{ include("USCatalogBundle:Catalog:form.html.twig") }}
+
+<a id="addImage" href="#">Ajouter une image</a>
+</section>
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+/*function seeValues(propertiesBloc,typeProduct)
+{
+  $.ajax(
+  {
+    url: Routing.generate('add_properties_for_product'),
+    type: 'POST',
+    data:
+  {
+    id : $("#" + typeProduct + " option:selected").val()
+  },
+  dataType: 'json',
+  success: function(jsonResponse)
+{
+    console.log(jsonResponse);
+  var num = 0;
+
+  $('#' + propertiesBloc + '').empty();
+
+  var properties = jsonResponse.properties;
+
+  var i,j;
+  for(i in properties)
+  {
+    if(properties[i].isSelectable)
+    {
+      $('#' + propertiesBloc + '').append('<p><label>' + properties[i].name + '</label></p>');
+      var list = '<select id="us_catalogbundle_product_propertyValues_' + (i) + '_id" name="us_catalogbundle_product[propertyValues][' + (i) +'][id][]" required="required" multiple="multiple">';
+
+      for(j in properties[i].values)
+      {
+        list += '<option value="' + (j) + '">' + properties[i].values[j] + '</option>';
+      }
+      list += '</select>';
+      $('#' + propertiesBloc + '').append(list);
+
+    }
+    else
+    {
+      property = '<p><label>' + properties[i].name + '</label><textarea id="us_catalogbundle_product_propertyValues_' + (i) + '_id" name="us_catalogbundle_product[propertyValues][' + (i) +'][id]" required="required"></textarea></p>';
+      $('#' + propertiesBloc + '').append(property);
+    }
+
+  }
+
+
+},
+error: function()
+{
+  $('#' + propertiesBloc + '').empty();
+}
+});
+}
+
+
+  $("#us_catalogbundle_product_category").change(function() {
+    seeValues('us_catalogbundle_product_propertyValues','us_catalogbundle_product_category');
+}).trigger('change');*/
+
+  function seeImages()
+  {
+    $.ajax(
+    {
+      url: Routing.generate('view_images_ressources'),
+      type: 'POST',
+      data:
+      {
+        id:1
+      },
+      dataType: 'json',
+      success: function(jsonResponse)
+      {
+        var images = jsonResponse.images;
+
+        if (images !== null)
+        {
+
+          var windowRessources = $('<div/>').attr('id', 'ressourcesImages');
+          var buttonDown = $('<a/>').attr('id', 'buttonDown').attr('href', '#').append('Fermer');
+
+          windowRessources.append(buttonDown);
+
+          for (image in images)
+          {
+            var linkImage = $('<a/>').attr('class', 'linkImage').attr('href', '#').attr('data-id', image);
+            var image = $('<img/>').attr('src', images[image]['url']).attr('alt', images[image]['alt']);
+
+            linkImage.append(image);
+            windowRessources.append(linkImage);
+          }
+
+          $('body').prepend(windowRessources);
+
+        }
+
+      },
+      error: function()
+      {
+        console.log('bad');
+      }
+    });
+  }
+
+  $('body').on('click', '#addImage', function(e)
+  {
+    seeImages();
+
+    e.preventDefault();
+  });
+
+  $('body').on('click', '#ressourcesImages a.linkImage', function(e)
+  {
+    var idImage = $(this).attr('data-id');
+
+    $('#us_catalogbundle_product_idImage').val(idImage);
+
+  });
+
+});
+</script>
+
+{% endblock %}

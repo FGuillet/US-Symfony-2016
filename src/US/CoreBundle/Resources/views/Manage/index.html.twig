@@ -1,0 +1,40 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Manage - {% endblock %}
+
+{% block body %}
+  <section class="container listAction">
+    <div class="row">
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="#">Ajouter un nouvel article</a>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="{{ path('us_news_add') }}">Ajouter une nouvelle actualité</a>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="{{ path('product_add') }}">Ajouter un nouveau produit</a>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="{{ path('us_image_add') }}">Ajouter une nouvelle image</a>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="{{ path('add_product_category') }}">Ajouter une nouvelle catégorie de produit</a>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="actionItem">
+          <a href="{{ path('add_property') }}">Ajouter une nouvelle propriété produit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

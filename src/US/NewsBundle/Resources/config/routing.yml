@@ -1,0 +1,23 @@
+us_news_index:
+    path:     /manage/news
+    defaults: { _controller: USNewsBundle:News:index }
+
+us_news_view:
+    path:     /actualite/{slug}
+    defaults: { _controller: USNewsBundle:News:view }
+
+us_news_view_manage:
+    path:     manage/fiche/{id}
+    defaults: { _controller: USNewsBundle:News:viewManage }
+
+us_news_add:
+    path:     manage/news/add
+    defaults: { _controller: USNewsBundle:News:add }
+
+us_news_edit:
+    path:     manage/edit-news/{id}
+    defaults: { _controller: USNewsBundle:News:edit }
+
+us_news_delete:
+    path:     manage/delete-news/{id}
+    defaults: { _controller: USNewsBundle:News:delete }

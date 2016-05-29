@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}Univers Styl - Salon de coiffure</title>
+    <meta charset="utf-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="bootstrap-3.3.4/css/bootstrap.min.css"/>-->
+    {% stylesheets filter='cssrewrite'
+    'css/public/*' %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+
+    {% javascripts 'js/modernizr.custom.14671.js' %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+  </head>
+  <body class="body">
+    <header>
+      <div class="headerInner container">
+        <div id="logo">
+          <a class="logo" title="universstyl.com" href="{{ path('us_section_index') }}">universstyl.com</a>
+        </div>
+        <aside id="tel">
+          <img src="{{ asset('images/picto-tel.png') }}" alt="Telephone" /><p>01 49 30 44 40</p>
+        </aside>
+        <nav class="navbar navbar-inverse">
+
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse overflowSousmenu">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li class="sousMenu"><a href="#">Coiffure</a>
+          <ul>
+              <li><a href="#">Coiffure mixte</a></li>
+              <li><a href="#">Soins capillaires</a></li>
+              <li><a href="#">Fidélité</a></li>
+          </ul>
+        </li>
+                <li class="sousMenu"><a href="#">Perruques</a>
+          <ul>
+              <li><a href="#">Perruques court</a></li>
+              <li><a href="#">Perruques mi-long</a></li>
+              <li><a href="#">Perruques long</a></li>
+              <li><a href="#">Perruques homme</a></li>
+              <li><a href="#">Perruques sur mesure</a></li>
+              <li><a href="#">Prise en charge</a></li>
+          </ul>
+        </li>
+                <li class="sousMenu"><a href="#">Solutions capillaires</a>
+          <ul>
+              <li><a href="#">Compléments capillaire</a></li>
+              <li><a href="#">Volumateurs & extensions</a></li>
+              <li><a href="#">Postiches</a></li>
+          </ul>
+        </li>
+                <li class="sousMenu"><a href="#">Accessoires</a>
+          <ul>
+              <li><a href="#">Turbans</a></li>
+              <li><a href="#">Vernis à ongles</a></li>
+              <li><a href="#">Cils et sourcils</a></li>
+          </ul>
+        </li>
+                <li><a href="#">Conseils</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+
+      </div>
+      <div class="carousel">
+        <div class="container containerHoraires">
+          <div id="Horaires">
+            <div class="imgHoraires"></div>
+            <div class="blocHoraires">
+              <p class="titreHoraires">Horaires d'ouverture</p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="widthTd">Lundi</td>
+                    <td>Fermé</td>
+                  </tr>
+                  <tr>
+                    <td>Mardi</td>
+                    <td>9h00 - 12h00 / 14h00 - 19h00</td>
+                  </tr>
+                  <tr>
+                    <td>Mercredi</td>
+                    <td>9h00 - 12h00 / 14h00 - 19h00</td>
+                  </tr>
+                  <tr>
+                    <td>Jeudi</td>
+                    <td>9h00 - 12h00 / 14h00 - 19h00</td>
+                  </tr>
+                  <tr class="aujourdhui">
+                    <td>Vendredi</td>
+                    <td>9h00 - 12h00 / 14h00 - 19h00</td>
+                  </tr>
+                  <tr>
+                    <td>Samedi</td>
+                    <td>9h00 - 18h00</td>
+                  </tr>
+                  <tr>
+                    <td>Dimanche</td>
+                    <td>Fermé</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        {{ render(controller("USNewsBundle:News:viewNewsWidget")) }}
+
+      </div>
+    </header>
+      {% block body %}{% endblock %}
+
+      <footer>
+          <div class="container">
+              <img src="{{ asset('images/logo-universstyl.png') }}" alt="logo univers styl">
+              <ul class="gmaps">
+                  <a href="#">
+                  <li>1, place des Tilleuls</li>
+                  <li>94350 VILLIERS SUR MARNE - FRANCE</li>
+                  </a>
+              </ul>
+              <ul>
+                  <li class="tel">01 49 30 44 40</li>
+                  <li class="fax">09 74 44 34 03</li>
+              </ul>
+              <ul>
+                  <li><a href="#">Mentions légales</a></li>
+                  <li><a href="#">Conditions générales</a></li>
+             </ul>
+          </div>
+      </footer>
+      <p class="pFooter">Propulsé par Florian Guillet</p>
+
+      <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+      <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+      {% javascripts 'js/public/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+  </body>
+</html>

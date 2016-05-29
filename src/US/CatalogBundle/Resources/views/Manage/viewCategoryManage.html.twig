@@ -1,0 +1,29 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}{% if category is not null %}{{ category.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+  <section class="container">
+    <h1>Catégorie</h1>
+    {% if category is not null %}
+      <div class="row">
+        <h3>{{ category.name }}</h3>
+      </div>
+      <div class="row">
+        <p><strong>Propriétés</strong></p>
+        {% for property in category.properties %}
+          <p>{{ property.name }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="row">
+        <div class="btn-group">
+          <a href="{{ path('edit_category', {'id': category.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+          <a href="" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+      </div>
+
+    {% endif %}
+  </section>
+
+{% endblock %}

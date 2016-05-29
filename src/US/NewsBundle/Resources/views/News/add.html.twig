@@ -1,0 +1,80 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Ajouter une actualité - {% endblock %}
+
+{% block body %}
+<section class="container">
+  <h1>Ajouter une actualité</h1>
+
+  {{ include("USNewsBundle:News:form.html.twig") }}
+</section>
+
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+
+function seeValues()
+{
+  $.ajax(
+  {
+    url: Routing.generate('view_images_ressources'),
+    type: 'POST',
+    data:
+    {
+      id:1
+    },
+    dataType: 'json',
+    success: function(jsonResponse)
+    {
+      var images = jsonResponse.images;
+
+      if (images !== null)
+      {
+        var windowRessources = $('<div/>').attr('id', 'ressourcesImages');
+        var buttonDown = $('<a/>').attr('id', 'buttonDown').attr('href', '#').append('Fermer');
+
+        windowRessources.append(buttonDown);
+
+        for (image in images)
+        {
+          var linkImage = $('<a/>').attr('class', 'linkImage').attr('href', '#').attr('data-id', image);
+          var image = $('<img/>').attr('src', images[image]['url']).attr('alt', images[image]['alt']);
+
+          linkImage.append(image);
+          windowRessources.append(linkImage);
+        }
+
+        $('body').prepend(windowRessources);
+
+      }
+
+    },
+    error: function()
+    {
+      console.log('bad');
+    }
+  });
+}
+
+
+  $("#formulaire").on('click', '#addImage', function(e)
+  {
+    seeValues();
+
+    e.preventDefault();
+  });
+
+  $('body').on('click', '#ressourcesImages a.linkImage', function(e)
+  {
+    var idImage = $(this).attr('data-id');
+
+    $('#us_newsbundle_news_idImage').val(idImage);
+
+  });
+
+});
+</script>
+{% endblock %}

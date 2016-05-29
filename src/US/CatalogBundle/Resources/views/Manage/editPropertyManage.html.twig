@@ -1,0 +1,80 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Editer une propriété - {% endblock %}
+
+{% block body %}
+    <section class="container">
+        <h1>Editer la propriété "{{ property.name }}"</h1>
+
+
+        {{ include("USCatalogBundle:Catalog:formEditProperty.html.twig") }}
+    </section>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        /*$(document).ready(function()
+         {
+         
+         $('#addValue').on('click', function(e)
+         {
+         
+         var $container = $('#us_catalogbundle_property_propertyValues');
+         var $index = $('#us_catalogbundle_property_propertyValues > div').length;
+         
+         $container.append('<p>');
+         $('<label/>').text('Value').appendTo($container);
+         $('<input/>').attr('id', 'us_catalogbundle_property_propertyValues_' + $index + '_content').attr('name', 'us_catalogbundle_property[propertyValues][' + $index + '][content]').attr('required', 'required').appendTo($container);
+         $('<a/>').text('Delete').attr('href', '#').attr('id', 'delete' + $index + '' ).appendTo($container);
+         $container.append('</p>');
+         
+         e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+         
+         return false;
+         });
+         
+         });*/
+
+        $(document).ready(function ()
+        {
+            var $index = $('#us_catalogbundle_property_propertyValues > div').length;
+            var $container = $('#us_catalogbundle_property_propertyValues');
+
+            $('#addValue').on('click', function (e)
+            {
+                var $name = 'us_catalogbundle_property[propertyValues][' + $index + '][content]';
+                var $id = 'us_catalogbundle_property_propertyValues_' + $index + '_content';
+
+                var $content = '<div>';
+                $content += '<label for="' + $name + '">Values : </label>';
+                $content += '<input id="' + $id + '" name="' + $name + '" required="required" />';
+{#                $content += '<a id="delete' + $index + '" href="#" data-parent="' + $id + '">Supprimer</a>';#}
+                $content += '</div>';
+
+                $container.append($content);
+
+                $index++;
+
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                return false;
+            });
+
+            $('#us_catalogbundle_property_propertyValues').on('click', 'a', function (e)
+            {
+                $(this).parent().parent().parent().remove();
+
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+
+                return false;
+            });
+
+            /*var $values = $('#us_catalogbundle_property_propertyValues textarea').length;
+             
+             for (var $i = 0; $i < $values; $i++)
+             {
+             var $id = '#us_catalogbundle_property_propertyValues_' + $i + '_content';
+             $($id).after('<a class="delete" href="#">Delete</a>');
+             }*/
+        });
+    </script>
+{% endblock %}

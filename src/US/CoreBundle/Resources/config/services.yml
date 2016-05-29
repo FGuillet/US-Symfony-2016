@@ -1,0 +1,4 @@
+services:
+    us_image_service:
+        class: US\CoreBundle\Service\ImageService
+        arguments: [@doctrine.orm.entity_manager]

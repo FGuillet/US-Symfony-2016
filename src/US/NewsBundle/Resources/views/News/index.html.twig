@@ -1,0 +1,34 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Actualités - {% endblock %}
+
+{% block body %}
+  <section class="container">
+    <h1>Les actualités</h1>
+    <div class="row">
+      <div class="col-xs-12 navbar navbar-default">
+        <span class="glyphicon glyphicon-plus"></span><a href="{{ path('us_news_add') }}">Ajouter une Actualité</a>
+      </div>
+    </div>
+    <div class="row">
+      {% if news is not null %}
+        {% for singleNews in news %}
+          <div class="actionNews col-sm-3 col-xs-12">
+            <div class="containerNews">
+              <img src="{{ (asset(singleNews.image.webPath)) | imagine_filter('productFilter') }}" alt="{{ singleNews.image.alt }}" />
+            </div>
+            <div class="btn-group">
+              <a href="{{ path('us_news_view_manage', {'id': singleNews.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-eye-open"></span></a>
+              <a href="{{ path('us_news_edit', {'id': singleNews.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+              <a href="{{ path('us_news_delete', {'id': singleNews.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Aucune actualité enregistrée sur le site</p>
+      {% endif %}
+
+
+    </div>
+  </section>
+{% endblock %}

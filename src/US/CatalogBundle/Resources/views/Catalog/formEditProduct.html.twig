@@ -1,0 +1,100 @@
+<div id="formulaire">
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.name, "Nom du produit", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.name) }}
+
+      <div class="col-sm-4">
+        {# Génération de l'input. #}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.description, "Description du produit", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.description) }}
+
+      <div class="col-sm-4">
+        {# Génération de l'input. #}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.category, "Famille du produit", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.category) }}
+
+      <div class="col-sm-4">
+        {# Génération de l'input. #}
+        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    {# Idem pour un autre champ.#}
+    {% if form.propertyValues is defined and form.propertyValues is not null %}
+    <p>{{ form_label(form.propertyValues, "Valeurs") }}</p>
+    <div id="us_catalogbundle_product_propertyValues">
+      {% if product.propertyValues is not null %}
+        {% for property in properties %}
+          <p>{{ property.name }}</p>
+
+          {% if property.isSelectable %}
+            <select id="us_catalogbundle_product_propertyValues_{{ loop.index0 }}_content" name="propertyValues[]" multiple="multiple">
+              {% for propertyValue in property.propertyValues %}
+                {% if propertyValue in product.propertyValues %}
+                  <option value="{{ propertyValue.id }}" selected="selected">{{ propertyValue.content }}</option>
+                {% else %}
+                  <option value="{{ propertyValue.id }}">{{ propertyValue.content }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          {% else %}
+            {% for propertyValue in product.propertyValues %}
+              {% if propertyValue.property == property %}
+                <textarea id="us_catalogbundle_product_propertyValues_{{ loop.parent.loop.index0 }}_content" name="propertyValues">{{ propertyValue.content }}</textarea>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+        {% endfor %}
+      {% endif %}
+    </div>
+    {#<div class="form-group dataValues" style="height:0; opacity:0;">
+      {% for propertyValue in form.propertyValues %}
+          {{ form_label(propertyValue, 'Valeur', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+          <p>{{ form_label(propertyValue.content, 'Valeur', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}</p>
+          <div>{{ form_errors(propertyValue.content) }}</div>
+          <div class="col-sm-8">
+            <p>{{ form_widget(propertyValue.content) }}</p>
+          </div>
+      {% endfor %}
+  </div>#}
+
+    {% endif %}
+
+
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {# Génération automatique des champs pas encore écrits. #}
+  {#{{ form_rest(form) }}#}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>
+  <a href="#" id="addValue">Add Value</a>
+</div>

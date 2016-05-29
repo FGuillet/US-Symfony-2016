@@ -1,0 +1,26 @@
+{% if news is not null %}
+  <div id="actualites">
+          <div class="container">
+                  <div class="slider">
+                       <div class="flexslider">
+                           <ul class="slides">
+                             {% for singleNews in news %}
+                                <li>
+                                    <a href="{{ path('us_news_view', {'slug': singleNews.slug}) }}">
+                                        <div class="slideImg">
+                                            <img src="{{ (asset(singleNews.image.webPath)) | imagine_filter('newsFilter') }}" alt="{{ singleNews.image.alt }}"  />
+                                        </div>
+                                        <div class="slideText">
+                                            <h2 class="flex-caption">{{ singleNews.title }}</h2>
+                                            <p class="flex-caption">{{ singleNews.description | truncate(100, false, '...') }}</p>
+                                        </div>
+                                        <p class="flex-caption enSavoirPlus">En savoir plus...</p>
+                                    </a>
+                                </li>
+                              {% endfor %}
+                           </ul>
+                      </div>
+                  </div>
+          </div>
+  </div>
+{% endif %}

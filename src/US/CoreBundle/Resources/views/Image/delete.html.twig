@@ -1,0 +1,24 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Supprimer une image - {% endblock %}
+
+{% block body %}
+<section class="container">
+  <h1>Supprimer l'image "{{ image.name }}"</h1>
+
+  <h2>Supprimer une image</h2>
+  <p>
+  Etes-vous certain de vouloir supprimer l'image "{{ image.name }}" ?
+  </p>
+  {# On met l'id de l'article dans la route de l'action du formulaire #}
+  <form action="{{ path('image_delete', {'id': image.id}) }}" method="post">
+    <a href="{{ path('image_index') }}" class="btn">
+      Retour au centre de ressources
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+  </form>
+</section>
+
+
+{% endblock %}

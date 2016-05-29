@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{% if product is not null %}{{ product.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+  <section class="container">
+  {% if product is not null %}
+    <h1 class="titreRouge">{{ product.name }}</h1>
+
+    <div class="row produit">
+      {% if product.image is not null %}
+        <div class="col-sm-5 col-xs-12">
+            <img src="{{ (asset(product.image.webPath)) | imagine_filter('imageProductFilter') }}" alt="{{ product.image.alt }}" />
+  			</div>
+      {% endif %}
+
+      <div class="col-sm-7 col-xs-12">
+        <p>Type de produit : {{ product.category.name }}</p>
+        <p>Description : {{ product.description }}</p>
+        {% if product.propertyValues is not null %}
+          {% for property in product.category.properties %}
+            <p>{{ property.name }} :</p>
+            {% for propertyValue in product.propertyValues %}
+              {% if propertyValue.property == property %}
+                {{ propertyValue.content }},
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+  </section>
+
+{% endblock %}

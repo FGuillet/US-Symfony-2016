@@ -1,0 +1,25 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}{% if image is not null %}{{ image.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+<section class="container">
+  <h1>Centre de ressources</h1>
+  {% if image is not null %}
+        <div class="row">
+          <img src="{{ (asset(image.webPath)) | imagine_filter('imageFilter') }}" alt="{{ image.alt }}" />
+        </div>
+        <div class="row">
+          <p>Fichier : {{ image.name }}.{{ image.ext }}</p>
+          <p>Nom : {{ image.name }}</p>
+          <p>Description : {{ image.alt }}</p>
+        </div>
+        <div class="row btn-group">
+          <a href="{{ path('image_edit', {'id': image.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+          <a href="{{ path('image_delete', {'id': image.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

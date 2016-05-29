@@ -1,0 +1,42 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}{% if product is not null %}{{ product.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+  <section class="container">
+    <h1>Produit</h1>
+    {% if product is not null %}
+      <div class="row">
+        <h3>{{ product.name }}</h3>
+      </div>
+
+      {% if product.image is not null %}
+        <div class="row">
+          <img src="{{ (asset(product.image.webPath)) | imagine_filter('productFilter') }}" alt="{{ product.image.alt }}" />
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <p>Type de produit : {{ product.category.name }}</p>
+        <p>Description : {{ product.description }}</p>
+        {% if product.propertyValues is not null %}
+          <p><strong>Type de valeurs spéciales :</strong></p>
+          {% for property in product.category.properties %}
+            <p>{{ property.name }} :</p>
+            {% for value in product.propertyValues %}
+              {% if value.property == property %}
+                {{ value.content }},
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="row">
+        <div class="btn-group">
+          <a href="{{ path('edit_product', {'id': product.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+          <a href="{{ path('delete_product', {'id': product.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+      </div>
+    {% endif %}
+
+{% endblock %}

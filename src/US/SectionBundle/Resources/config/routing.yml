@@ -1,0 +1,19 @@
+us_section_index:
+    path:     /
+    defaults: { _controller: USSectionBundle:Section:index }
+
+us_section_view:
+    path:     /{slug}
+    defaults: { _controller: USSectionBundle:Section:view }
+
+us_section_add:
+    path:     /addSection
+    defaults: { _controller: USSectionBundle:Section:add }
+
+us_section_edit:
+    path:     /editSection
+    defaults: { _controller: USSectionBundle:Section:edit }
+
+us_section_delete:
+    path:     /deleteSection
+    defaults: { _controller: USSectionBundle:Section:delete }

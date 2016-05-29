@@ -1,0 +1,30 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}{% if property is not null %}{{ property.name }} - {% endif %}{% endblock %}
+
+{% block body %}
+  <section class="container">
+    <h1>Propriété</h1>
+    {% if property is not null %}
+      <div class="row">
+        <h3>{{ property.name }}</h3>
+      </div>
+      {% if (property.propertyValues is not null) and (property.isSelectable) %}
+        <div class="row">
+          <p>Valeurs :</p>
+            <ul>
+            {% for propertyValue in property.propertyValues %}
+              <li>{{ propertyValue.content }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      <div class="row">
+        <div class="btn-group">
+          <a href="{{ path('edit_property', {'id': property.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+          <a href="" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

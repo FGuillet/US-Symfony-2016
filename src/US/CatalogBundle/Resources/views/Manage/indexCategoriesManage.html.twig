@@ -1,0 +1,39 @@
+{% extends "::manage.html.twig" %}
+
+{% block title %}Catégories - {% endblock %}
+
+{% block body %}
+  <section class="container">
+    <div class="col-xs-12 navbar navbar-default">
+      <span class="glyphicon glyphicon-plus"></span><a href="{{ path('add_product_category') }}">Ajouter une catégorie</a>
+    </div>
+    <div class="row">
+      {% if categories is not null %}
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nom de la catégorie</th>
+              <th>Nombre de produit</th>
+              <th>Actions</th>
+            <tr>
+          </thead>
+          <tbody>
+          {% for category in categories %}
+            <tr>
+              <td>{{ category.name }}</td>
+              <td>{{ category.products | length }}</td>
+              <td class="btn-group">
+                <a href="{{ path('view_category', {'id': category.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                <a href="{{ path('edit_category', {'id': category.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="{{ path('delete_category', {'id': category.id}) }}" class="btn btn-default" ><span class="glyphicon glyphicon-remove"></span></a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>Aucun produit dans votre catalogue</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

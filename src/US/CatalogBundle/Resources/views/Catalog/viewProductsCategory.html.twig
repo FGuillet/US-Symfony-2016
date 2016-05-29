@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{% if category is not null %}{{ category.name }} - {% endif %} Catalogue - {% endblock %}
+
+{% block body %}
+    <section id="wrapper" class="container">
+        {% if category is not null %}
+            <h1 class="titreRouge">{{ category.name }}</h1>
+        {% endif %}
+
+        {% if products is not null %}
+            <div class="row catalogue4">
+                {% for product in products %}
+                    <div class="col-sm-3 col-xs-12">
+                        <a href="{{ path('product_view', {'slug': product.slug}) }}">
+                            <div class="nomPerruque">
+                                <h3>{{ product.name }}</h3>
+                            </div>
+                            {% for propertyValue in product.propertyValues %}
+                                {% if propertyValue.property.name == 'Type de cheveux' %}
+                                    <div class="typePerruque">
+                                        <p>{{ propertyValue.content }}</p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            <div class="imgPcourt">
+                                {% if product.image is defined and product.image is not null%}
+                                    <img src="{{(asset(product.image.webPath)) | imagine_filter('productCatalogFilter') }}" alt="{{ product.image.alt }}" />
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </section>
+{% endblock %}

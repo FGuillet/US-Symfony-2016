@@ -1,0 +1,29 @@
+image_index:
+    path:     ressources/
+    defaults: { _controller: USCoreBundle:Image:index }
+
+image_view:
+    path:     ressourcesimages/view/{id}
+    defaults: { _controller: USCoreBundle:Image:view }
+
+us_image_add:
+    path:     ressourcesimages/add
+    defaults: { _controller: USCoreBundle:Image:add }
+
+image_edit:
+    path:     ressourcesimages/edit/{id}
+    defaults: { _controller: USCoreBundle:Image:edit }
+
+image_delete:
+    path:     ressources/images/delete/{id}
+    defaults: { _controller: USCoreBundle:Image:delete }
+
+view_images_ressources:
+    path:     ressources/view/ressources
+    defaults: { _controller: USCoreBundle:Image:viewImagesRessources }
+    options:
+        expose: true
+
+manage_index:
+    path:     /
+    defaults: { _controller: USCoreBundle:Manage:index }

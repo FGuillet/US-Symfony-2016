@@ -1,0 +1,13 @@
+services:
+    us_category_service:
+        class: US\CatalogBundle\Service\CategoryService
+        arguments: [@doctrine.orm.entity_manager]
+    us_product_service:
+        class: US\CatalogBundle\Service\ProductService
+        arguments: [@doctrine.orm.entity_manager]
+    us_property_service:
+        class: US\CatalogBundle\Service\PropertyService
+        arguments: [@doctrine.orm.entity_manager, @session]
+    us_property_value_service:
+        class: US\CatalogBundle\Service\PropertyValueService
+        arguments: [@doctrine.orm.entity_manager]

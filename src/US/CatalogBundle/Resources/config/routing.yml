@@ -1,0 +1,84 @@
+# Product
+product_index:
+    path:     catalog/
+    defaults: { _controller: USCatalogBundle:Product:index }
+
+product_index_manage:
+    path:     manage/catalog/products
+    defaults: { _controller: USCatalogBundle:Product:indexManage }
+
+product_view:
+    path:     catalog/product/{slug}
+    defaults: { _controller: USCatalogBundle:Product:view }
+
+product_view_manage:
+    path:     manage/catalog/product/{id}
+    defaults: { _controller: USCatalogBundle:Product:viewManage }
+
+view_products_category:
+    path:     catalog/{slug}
+    defaults: { _controller: USCatalogBundle:Product:listByCategory }
+
+product_add:
+    path:     manage/catalog/add
+    defaults: { _controller: USCatalogBundle:Product:add }
+
+edit_product:
+    path:     manage/catalog/edit/{id}
+    defaults: { _controller: USCatalogBundle:Product:edit }
+
+delete_product:
+    path:    manage/catalog/delete/{id}
+    defaults: { _controller: USCatalogBundle:Product:delete }
+
+#Category
+category_index_manage:
+    path:     manage/catalog/categories
+    defaults: { _controller: USCatalogBundle:Category:indexManage }
+
+view_category:
+        path:     manage/catalog/category/{id}
+        defaults: { _controller: USCatalogBundle:Category:view }
+
+add_product_category:
+    path:     manage/catalog/addCategory
+    defaults: { _controller: USCatalogBundle:Category:add }
+
+edit_category:
+    path:     manage/catalog/edit/category/{id}
+    defaults: { _controller: USCatalogBundle:Category:edit }
+
+delete_category:
+    path:    manage/catalog/category/delete/{id}
+    defaults: { _controller: USCatalogBundle:Category:delete }
+
+#Property
+property_index_manage:
+    path:     manage/catalog/properties
+    defaults: { _controller: USCatalogBundle:Property:indexManage }
+
+view_property:
+    path:     manage/catalog/property/{id}
+    defaults: { _controller: USCatalogBundle:Property:view }
+
+add_property:
+    path:     manage/catalog/addProperty
+    defaults: { _controller: USCatalogBundle:Property:add }
+
+edit_property:
+    path:     manage/catalog/edit/Property/{id}
+    defaults: { _controller: USCatalogBundle:Property:edit }
+
+delete_property:
+    path:    manage/catalog/property/delete/{id}
+    defaults: { _controller: USCatalogBundle:Property:delete }
+
+add_properties_for_product:
+    path:     catalog/change/values
+    defaults: { _controller: USCatalogBundle:Property:addForProduct }
+    options:
+        expose: true
+
+
+
+

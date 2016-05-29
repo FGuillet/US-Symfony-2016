@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}Manage - Univers Styl</title>
+    <meta charset="utf-8"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+  </head>
+  <body>
+    {% block body %}
+      <section class="container">
+        <div class="row">
+          <h1 style="text-align:center;">Manage Univers Styl</h1>
+        </div>
+        <div class="row">
+          {# On affiche les messages flash que définissent les contrôleurs du bundle #}
+          {% for key, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+              <div class="alert alert-{{ key }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <div class="row">
+          {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
+          {% block fos_user_content %}
+          {% endblock fos_user_content %}
+        </div>
+      </section>
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  </body>
+</html>

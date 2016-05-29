@@ -1,0 +1,385 @@
+/*---------------------------------------------------------------------------------------------------------------
+HEADER
+---------------------------------------------------------------------------------------------------------------*/
+
+@media all and (max-width:500px) and (min-width:200px)
+{
+	#logo{
+	width:120px;
+	height:115px;
+	}
+	#logo a
+	{
+  background-size:65%;
+	}
+}
+
+@media all and (max-width:400px)
+{
+    #tel
+    {
+    padding: 0 0 0 0px;
+    }
+}
+
+@media all and (max-width:360px)
+{
+	#logo{
+	width:90px;
+	height:86px;
+	}
+	#logo a
+	{
+    background-size:65%;
+	}
+    #tel img, #tel p
+    {
+    font-size: 0.8em;
+    }
+    #tel img
+    {
+      margin:0px 10px 0 0;
+    }
+}
+
+@media all and (max-width:769px) and (min-width:200px)
+{
+header .navbar-inverse .navbar-nav > li.sousMenu ul li
+{
+	max-width:176px;
+}
+}
+
+@media all and (max-width: 1200px) and (min-width:768px)
+{
+header.navbar-inverse .navbar-nav > li > a
+{
+	line-height:1.5em;
+}
+}
+
+@media all and (min-width: 1200px)
+{
+header nav
+{
+	float:left;
+}
+}
+
+
+@media all and (max-width: 768px) and (min-width:200px)
+{
+.navbar-header .navbar-collapse .collapse .overflowSousmenu
+{
+	display:block!important;
+	height:inherit;
+	overflow:hidden;
+}
+}
+
+@media all and (max-width: 768px) and (min-width:200px) {
+  #navbar{
+	overflow: visible !important;
+	height:auto;
+  }
+ }
+
+@media all and (max-width:370px)
+{
+    #Horaires, .blocHoraires
+    {
+        width: 100%;
+    }
+
+    .imgHoraires
+    {
+    width: 100%;
+    height: auto;
+    background: url("../../images/accroche-horaires.png") no-repeat 25px 0;
+    background-size: 100%;
+    }
+
+    #Horaires table
+    {
+    width: 95%;
+    font-size:0.9em;
+    }
+
+    #Horaires .titreHoraires:before, #Horaires .titreHoraires:after
+    {
+    width:0;
+    }
+
+    .blocHoraires
+    {
+        height: auto;
+        padding: 0 0 2px 0;
+    }
+}
+
+@media all and (max-width:1400px)
+{
+    .carousel
+    {
+      background:#555555 url("../../images/banniere1.jpg") no-repeat 30% 0;
+    }
+}
+
+@media all and (max-width:1200px)
+{
+    .carousel
+    {
+      background:#555555 url("../../images/banniere1.jpg") no-repeat 40% 0;
+    }
+}
+
+@media all and (max-width:880px)
+{
+    .carousel
+    {
+      background:#555555 url("../../images/banniere1.jpg") no-repeat 35% 0;
+    }
+}
+
+@media all and (max-width:300px)
+{
+    .carousel
+    {
+      background:#555555 url("../../images/banniere1.jpg") no-repeat 35% 0;
+      height: 586px;
+    }
+}
+
+@media all and (max-width:900px)
+{
+    .slideImg
+    {
+            width: 40%;
+    }
+
+    .slideText
+    {
+        width: 55%;
+    }
+}
+
+@media all and (max-width:700px)
+{
+    .slideText h2
+    {
+        color:#ffffff;
+        font-family: 'capsuularegular', arial, helvetica, sans-serif;
+        font-size:1.8em;
+        font-weight:normal;
+        padding:25px 0 0px 25px;
+        margin:0;
+        line-height:1em;
+    }
+
+    .slideText
+    {
+        float: left;
+        width: 45%;
+        height: 125px;
+        overflow: hidden;
+    }
+
+    .slideImg
+    {
+        width: 50%;
+    }
+
+    #actualites
+    {
+      width:100%;
+      height:190px;
+      position:absolute;
+      bottom:0;
+      background:rgba(125,105,104,0.7);
+      border-top:2px solid #fef6e8;
+    }
+
+    .flexslider>.flex-control-nav
+    {
+        bottom:-14px;
+    }
+}
+
+@media all and (max-width:600px)
+{
+
+    .enSavoirPlus
+    {
+        text-decoration: underline;
+        display: block;
+    }
+}
+
+@media all and (max-width:425px)
+{
+    .slideText p
+    {
+        display: none;
+    }
+
+    .slideImg
+    {
+        width: 50%;
+    }
+    .slideText
+    {
+        width: 40%;
+    }
+}
+
+@media all and (max-width:550px)
+{
+
+    .slideImg
+    {
+        width: 60%;
+    }
+
+    .slideText
+    {
+        width: 35%;
+    }
+
+}
+
+
+@media all and (max-width:470px)
+{
+    .slideText
+    {
+        display: none;
+    }
+
+    .slideImg
+    {
+        width: 100%;
+    }
+
+    #actualites .flexslider .slides img
+    {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 14px auto;
+    float: none;
+    }
+
+    .enSavoirPlus
+    {
+        display: none;
+    }
+
+}
+
+@media (max-width: 320px)
+{
+    #actualites .flexslider .slides img {
+        width: auto;
+        height: 140px;
+        display: block;
+        margin: 17px auto;
+        float: none;
+    }
+}
+
+ /*---------------------------------------------------------------------------------------------------------------
+CONTAINER
+---------------------------------------------------------------------------------------------------------------*/
+
+
+@media (max-width: 1200px)
+{
+    body.body .container
+    {
+        width: 100%;
+    }
+
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:310px;
+    }
+}
+
+@media (max-width: 992px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:270px;
+    }
+}
+
+@media (max-width: 880px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:220px;
+    }
+}
+
+@media (max-width: 790px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:180px;
+    }
+}
+
+@media (max-width: 660px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:140px;
+    }
+}
+
+@media (max-width: 560px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:100px;
+    }
+}
+
+@media (max-width: 480px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:70px;
+    }
+}
+
+@media (max-width: 430px)
+{
+    h1.titreRouge:before, h1.titreRouge:after
+    {
+        width:0px;
+    }
+}
+
+@media all and (max-width:767px) and (min-width:200px)
+{
+  h1.titreRouge
+  {
+    font-size:2.2em;
+  }
+}
+
+@media all and (max-width:500px) and (min-width:200px)
+{
+	.blocGris img
+	{
+	width:100%;
+	height:auto;
+	}
+
+    .blocBeige img
+	{
+	width:100%;
+	height:auto;
+	}
+}
